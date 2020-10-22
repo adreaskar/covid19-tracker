@@ -6,7 +6,9 @@ This is my first `Node.js` project as part of training.
 Used: 
 - Bootstrap
 - Node.js
-  - Express.js
+  - express
   - ejs
   - https
+  - body parser
   
+App is hosted on heroku. 
