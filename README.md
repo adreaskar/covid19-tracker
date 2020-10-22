@@ -11,4 +11,4 @@ Used:
   - https
   - body parser
   
-App is hosted on heroku. covid19-world-api.herokuapp.com/
+App is hosted on heroku. https://covid19-world-api.herokuapp.com/
