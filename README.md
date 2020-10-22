@@ -14,3 +14,5 @@ Data sourced from Worldometers database.
   - ejs
   - https
   - body parser
+
+<img align="right" src="https://img.shields.io/github/repo-size/adreaskar/covid19-world-api?color=%23ff7429&style=for-the-badge">
