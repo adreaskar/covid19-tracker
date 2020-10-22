@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Covid-19 Tracker | Results</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> 
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <h1>Covid-19</h1>
+        <div class="container">
+            <div class="sign-up-content">
+                
+                <h2 class="form-title">Stats for <%= country %> <img src="<%= flag %>" style="width: 35px;"></h2>
+
+                <p class="loginhere" id="subtitle">
+                    
+                </p>
+
+                <div class="form-radio">
+                    <input type="radio" name="member_level" value="newbie" id="newbie" checked="checked" />
+                    <label for="newbie">New bee</label>
+
+                    <input type="radio" name="member_level" value="average" id="average" />
+                    <label for="average">Average</label>
+
+                    <input type="radio" name="member_level" value="master" id="master" />
+                    <label for="master">Master</label>
+                </div>
+                
+
+                <div class="content">
+                    <div id="left">
+                        <h3>Covid Stats</h3>
+                        Total cases: <span class="small"> <%= total %> </span> <br>
+                        Cases today: <span class="small"> <%= today %> </span>  <br>
+                        Active: <span class="small"> <%= active %> </span> <br>
+                        Critical: <span class="small"> <%= critical %> </span> <br>
+                        <span id="health">Recovered:</span> <span class="small"> <%= recovered %> </span> <br>
+                        <span id="death">Deaths:</span> <span class="small"> <%= deaths %> </span>
+                    </div>
+
+                    <div id="right">
+                        <h3>Country Stats</h3>
+                        <% if ( population === "undefined") { %>
+                            Population: <span class="small"> <%= population2 %> </span> <br>
+                        <% } else { %> 
+                            Population: <span class="small"> <%= population %> </span> <br> 
+                        <% } %>
+                        Region:  <span class="small"> <%= region %> </span> <br>
+                        Subregion:  <span class="small"> <%= subregion %> </span> <br>
+                        Capital:  <span class="small"> <%= capital %> </span> <br>
+                        Main currency:  <span class="small"> <%= currency %> </span>
+                    </div>
+
+                </div>
+
+                
+
+                <div id="goBack">
+                    <a href="/"><button>Go back</button></a>
+                </div>
+               
+
+                <p class="loginhere">
+                    <center>
+                        <p>Data sourced from Worldometers</p>
+                        <a href="https://github.com/adreaskar" class="loginhere-link">Github</a>
+                    </center>
+                    
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

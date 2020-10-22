@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Covid-19 Tracker</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> 
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <h1>Covid-19</h1>
+        <div class="container">
+            <div class="sign-up-content">
+                <form method="POST" class="signup-form" action="/">
+                    <h2 class="form-title">Results by country</h2>
+
+                    <p class="loginhere" id="subtitle">
+                        <a href="https://en.wikipedia.org/wiki/ISO_3166-1" target="_blank" class="loginhere-link">Find your country's ISO</a>
+                    </p>
+
+                    <div class="form-radio">
+                        <input type="radio" name="member_level" value="newbie" id="newbie" checked="checked" />
+                        <label for="newbie">New bee</label>
+
+                        <input type="radio" name="member_level" value="average" id="average" />
+                        <label for="average">Average</label>
+
+                        <input type="radio" name="member_level" value="master" id="master" />
+                        <label for="master">Master</label>
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="name">Country ISO</label>
+                        <input type="text" name="countryName" id="name" maxlength="3" minlength="2"/>
+                    </div>
+
+                    <br>
+
+                    <div class="form-textbox">
+                        <input type="submit" name="submit" id="submit" class="submit" value="See results" />
+                    </div>
+                </form>
+
+                <p class="loginhere">
+                    <center>
+                        <p>Data sourced from Worldometers</p>
+                        <a href="https://github.com/adreaskar" class="loginhere-link">Github</a>
+                    </center>
+                    
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
