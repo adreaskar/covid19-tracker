@@ -30,10 +30,6 @@ app.post("/", function (req,res) {
     const inArray1 = iso3.includes(country);
     const inArray2 = iso2.includes(country);
 
-    console.log(country);
-    console.log(inArray1);
-    console.log(inArray2);
-
     if (inArray1 || inArray2) {
 
         https.get(url, function (response) {
