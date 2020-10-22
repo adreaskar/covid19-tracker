@@ -277,6 +277,10 @@ display-flex {
       font-size: medium;
     }
 
+    input[type=text] {
+      padding-left: 130px;
+    }
+
   @media screen and (max-width: 575px) {
     .sign-up-content {
       padding: 40px 20px 32px 20px; }
