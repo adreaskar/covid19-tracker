@@ -5,8 +5,6 @@ This is my first `Node.js` project as part of training. The app  is hosted on he
 
 Data sourced from Worldometers database.
 
-> https://covid19-world-api.herokuapp.com/
-
 **Used**: 
 - Bootstrap
 - Node.js
@@ -14,5 +12,7 @@ Data sourced from Worldometers database.
   - ejs
   - https
   - body parser
+
+> https://covid19-world-api.herokuapp.com/
 
 <img align="right" src="https://img.shields.io/github/repo-size/adreaskar/covid19-world-api?color=%23ff7429&style=for-the-badge">
