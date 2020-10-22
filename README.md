@@ -3,6 +3,8 @@ A simple API that tracks Covid-19 data of current date + some additional country
 
 This is my first `Node.js` project as part of training. 
 
+> App is hosted on heroku. https://covid19-world-api.herokuapp.com/
+
 **Used**: 
 - Bootstrap
 - Node.js
@@ -10,5 +12,3 @@ This is my first `Node.js` project as part of training.
   - ejs
   - https
   - body parser
-  
-> App is hosted on heroku. https://covid19-world-api.herokuapp.com/
