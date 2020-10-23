@@ -328,6 +328,15 @@ display-flex {
       width: 85%;
       padding: 16px 30px 16px 10px; 
     }
+    h1 {
+      margin-top: 175px;
+      left: -25px;
+      font-size: 90px;
+    }
+   .container {
+      margin-top: -35px;
+      margin-bottom: -230px;
+    }
   }
     
   @media screen and (max-width: 400px) {
