@@ -234,7 +234,7 @@ display-flex {
 
     h3 {
       margin: 0 0 10px 0;
-      border-bottom: 3px solid #0c85d0;
+      border-bottom: 3px solid #1da0f2;
     }
 
     #left {
@@ -311,7 +311,6 @@ display-flex {
     h3 {
       font-size: large;
     }
-
     #left, #right {
       font-size: medium;
     }
@@ -324,6 +323,12 @@ display-flex {
       margin-top: 150px;
       left: -25px;
       font-size: 90px;
+    }
+    #resultsContent {
+      margin-top: -80px;
+    }
+    #resultsHeader {
+      margin-top: 130px;
     }
 
   @media screen and (max-width: 575px) {
