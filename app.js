@@ -1,6 +1,6 @@
 
-import { iso3 } from './public/js/iso3.js'
 import { iso2 } from './public/js/iso2.js'
+import { countries } from './public/js/countries.js'
 import express from 'express'
 import bodyParser from "body-parser"
 import https from "https"
@@ -21,16 +21,17 @@ app.get("/", function (req,res) {
 });
 
 app.post("/", function (req,res) {
-    const country = req.body.countryName.toUpperCase();
+    let country = req.body.countryName;
+    let suffix = iso2[country];
+
     const baseUrl = "https://disease.sh/v3/covid-19/countries/";
-    const url = baseUrl + country + "?strict=true";
-    const countryUrl = "https://restcountries.eu/rest/v2/alpha/" + country ;
+    const url = baseUrl + suffix + "?strict=true";
+    const countryUrl = "https://restcountries.eu/rest/v2/alpha/" + suffix ;
 
     // Data validation -------------------
-    const inArray1 = iso3.includes(country);
-    const inArray2 = iso2.includes(country);
+    const inArray = countries.includes(country);
 
-    if (inArray1 || inArray2) {
+    if (inArray) {
 
         https.get(url, function (response) {
             let bod = "";
