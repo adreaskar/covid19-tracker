@@ -22,6 +22,7 @@ app.get("/", function (req,res) {
 
 app.post("/", function (req,res) {
     let country = req.body.countryName;
+    country = country.replace(/^\w/, c => c.toUpperCase());
     let suffix = iso2[country];
 
     const baseUrl = "https://disease.sh/v3/covid-19/countries/";
