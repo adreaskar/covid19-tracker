@@ -263,6 +263,10 @@ display-flex {
     color: rgb(170, 0, 0);
   }
 
+  ::placeholder {
+    color: rgb(119, 119, 119);
+  }
+  
   /* Auto complete function */
   .autocomplete-items {
     width: 70%;
@@ -298,7 +302,6 @@ display-flex {
     background-color: DodgerBlue !important; 
     color: #ffffff;
   }
-
   
   @media screen and (max-width: 768px) {
     .container {
@@ -312,10 +315,20 @@ display-flex {
     #left, #right {
       font-size: medium;
     }
+    
+    h2 {
+      margin-bottom: -45px;
+    }
+    
+    h1 {
+      margin-top: 150px;
+      left: -25px;
+      font-size: 90px;
+    }
 
   @media screen and (max-width: 575px) {
     .sign-up-content {
-      padding: 40px 20px 32px 20px; }
+      padding: 25px 20px 5px 20px; }
   
     .form-radio input + label {
       display: block;
@@ -328,22 +341,19 @@ display-flex {
       width: 85%;
       padding: 16px 30px 16px 10px; 
     }
-    h1 {
-      margin-top: 150px;
-      left: -25px;
-      font-size: 90px;
-    }
    .container {
       margin-top: -55px;
       margin-bottom: -230px;
+    }
+    #goBack {
+      margin-bottom: -10px;
     }
   }
     
   @media screen and (max-width: 400px) {
     .form-textbox label {
-      left: 15px; }
-  
-     
+      left: 15px; 
+    }
   }
   
   /*# sourceMappingURL=style.css.map */
