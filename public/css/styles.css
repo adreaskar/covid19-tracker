@@ -281,6 +281,12 @@ display-flex {
     max-height: 317px;
     font-family: Arial, Helvetica, sans-serif;
   }
+  .autocomplete-items2 {
+    max-height: 282px;
+  }
+  .autocomplete-items2b {
+    max-height: 201px;
+  }
   
   .autocomplete-items div, .autocomplete-items2 div, .autocomplete-items2b div {
     padding: 10px;
