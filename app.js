@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 let error = false;
+let error2 = false;
 
+// Home route
 app.route("/")
     .get(function (req,res) {
         res.render("index", {error:error});
@@ -112,6 +114,15 @@ app.route("/")
             error = true;
             res.redirect("/");
         }
+    });
+
+// Compare two countries route
+app.route("/compare")
+    .get(function (req,res) {
+        res.render("compare", {error:error2});
+    })
+    .post(function (req,res) {
+        res.send("Under construction!")
     });
 
 // Add commas to seperate thousands -------------------------

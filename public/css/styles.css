@@ -154,25 +154,13 @@ display-flex {
     border: solid 2px #ebebeb;
     box-sizing: border-box;
     width: 70%;
-    font-weight: 500;
     font-size: large;
     padding: 16px 30px 16px 20px;
   }
   
   .form-textbox {
-    position: relative; }
-    .form-textbox label {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      font-weight: 600;
-      color: #888;
-      font-size: large; }
+    position: relative; 
+  }
   
   #name {
     border-radius: 5px;
@@ -184,7 +172,6 @@ display-flex {
     border: none;
     padding: 15px 20px;
     font-size: large;
-    font-weight: 600;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -209,7 +196,6 @@ display-flex {
   
   input[type=text] {
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
     font-size: large;
   }
 
@@ -266,9 +252,20 @@ display-flex {
   ::placeholder {
     color: rgb(119, 119, 119);
   }
+
+  #btn {
+    background-color: rgba(218, 218, 218, 0.5);
+    color: black;
+    border: solid 2px rgb(211, 211, 211);
+    width: 70%;
+  }
+
+  #btn:hover {
+    background-color: rgba(209, 209, 209, 0.596);
+  }
   
   /* Auto complete function */
-  .autocomplete-items {
+  .autocomplete-items, .autocomplete-items2, .autocomplete-items2b {
     width: 70%;
     margin: auto;
     position: absolute;
@@ -281,11 +278,11 @@ display-flex {
     left: 0;
     right: 0;
     overflow-y: scroll;
-    max-height: 200px;
+    max-height: 317px;
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  .autocomplete-items div {
+  .autocomplete-items div, .autocomplete-items2 div, .autocomplete-items2b div {
     padding: 10px;
     cursor: pointer;
     background-color: #fff; 
@@ -293,7 +290,7 @@ display-flex {
   }
   
   /*when hovering an item:*/
-  .autocomplete-items div:hover {
+  .autocomplete-items div:hover, .autocomplete-items2 div:hover, .autocomplete-items2b div:hover {
     background-color: #e9e9e9; 
   }
   
@@ -331,6 +328,9 @@ display-flex {
       margin-top: 155px;
       margin-left: 10px;
     }
+    #btn {
+      width: 85%;
+    }
     
   }
 
@@ -344,7 +344,15 @@ display-flex {
     } 
     .autocomplete-items {
         width: 85%;
-        max-height: 190px;
+        max-height: 306px;
+    }
+    .autocomplete-items2{
+      width: 85%;
+      max-height: 270px;
+    }
+    .autocomplete-items2b{
+      width: 85%;
+      max-height: 190px;
     }
     input {
       width: 85%;
