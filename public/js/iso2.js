@@ -33,7 +33,6 @@ const iso2 = {
     "Romania" :"RO",
     "Tokelau" :"TK",
     "Guinea-Bissau" :"GW",
-    "Guam" :"GU",
     "Guatemala" :"GT",
     "Greece" :"GR",
     "Equatorial Guinea" :"GQ",

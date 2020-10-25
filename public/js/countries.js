@@ -33,7 +33,6 @@ const countries = [
     "Romania",
     "Tokelau",
     "Guinea-Bissau",
-    "Guam",
     "Guatemala",
     "Greece",
     "Equatorial Guinea",
