@@ -55,12 +55,10 @@ export async function api(url1,url2) {
 
     });
 
-    let result = await promise;
-    console.log(result);
+    var result = await promise;
+    return result;
 }
 
 function addCommas(intNum) {
     return (intNum + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,');
 }
-
-api("https://disease.sh/v3/covid-19/countries/GR", "https://restcountries.eu/rest/v2/alpha/GR");
