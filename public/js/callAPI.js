@@ -1,6 +1,6 @@
 import https from "https"
 
-export async function api(url1,url2,flag) {
+export async function api(url1,url2,flag,flag2) {
 
     let promise = new Promise((resolve,reject) => {
         var data = {};
@@ -15,12 +15,22 @@ export async function api(url1,url2,flag) {
                 const covidData = JSON.parse(bod);
         
                 // Covid-19 API data --------------------------------
-                data.totalCases = addCommas(covidData.cases);
-                data.todayCases = addCommas(covidData.todayCases);
-                data.totalRecovered = addCommas(covidData.recovered); 
-                data.totalDeaths = addCommas(covidData.deaths);
-                data.population = addCommas(covidData.population);
-                data.active = addCommas(covidData.active);
+                if (flag2) {
+                    data.totalCases = addCommas(covidData.cases);
+                    data.todayCases = addCommas(covidData.todayCases);
+                    data.totalRecovered = addCommas(covidData.recovered); 
+                    data.totalDeaths = addCommas(covidData.deaths);
+                    data.population = addCommas(covidData.population);
+                    data.active = addCommas(covidData.active);
+                } else {
+                    data.totalCases = covidData.cases;
+                    data.todayCases = covidData.todayCases;
+                    data.totalRecovered = covidData.recovered; 
+                    data.totalDeaths = covidData.deaths;
+                    data.population = covidData.population;
+                    data.active = covidData.active;
+                }
+                
                 data.critical = covidData.critical;
         
                 // API call to additional coutnry data -----
@@ -47,8 +57,12 @@ export async function api(url1,url2,flag) {
                         data.subRegion = countryData.subregion;
                         data.flag = countryData.flag;
                         data.name = countryData.name;
-                        data.countryPopulation = addCommas(countryData.population);
-
+                        if (flag2) {
+                            data.countryPopulation = addCommas(countryData.population);
+                        } else {
+                            data.countryPopulation = countryData.population;
+                        }
+                        
                         resolve(data);
                     }); 
                 });

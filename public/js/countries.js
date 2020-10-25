@@ -17,7 +17,6 @@ const countries = [
     "Jamaica",
     "Bouvet Island",
     "Botswana",
-    "Samoa",
     "Brazil",
     "Bahamas",
     "Jersey",

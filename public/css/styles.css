@@ -229,6 +229,7 @@ display-flex {
     h3 {
       margin: 0 0 10px 0;
       border-bottom: 3px solid #1da0f2;
+      font-size: large;
     }
 
     #left {
@@ -248,14 +249,17 @@ display-flex {
       padding-left: 10px;
     }
 
+    #health {
+      color: rgb(48, 158, 38);
+    }
 
-  #health {
-    color: rgb(48, 158, 38);
-  }
+    #death {
+      color: rgb(170, 0, 0);
+    }
 
-  #death {
-    color: rgb(170, 0, 0);
-  }
+    #large {
+      width: 100%;
+    }
 
   ::placeholder {
     color: rgb(119, 119, 119);
@@ -270,6 +274,12 @@ display-flex {
 
   #btn:hover {
     background-color: rgba(209, 209, 209, 0.596);
+  }
+
+  #extStats {
+    display: inline-block;
+    font-size: medium;
+    font-weight: 400;
   }
   
   /* Auto complete function */

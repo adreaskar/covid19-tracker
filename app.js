@@ -35,8 +35,9 @@ app.route("/")
 
         if (inArray) {
             const moreData = true;
+            const withCommas = true;
             
-            api(url,countryUrl,moreData).then(function (result) {
+            api(url,countryUrl,moreData,withCommas).then(function (result) {
                 res.render("results", 
                 {   
                     country: result.name,
@@ -90,10 +91,11 @@ app.route("/compare")
 
         if (inArray1 && inArray2) {
             const moreData = false;
+            const withCommas = false;
             var data1 = {};
             var data2 = {};
 
-            api(url1,countryUrl1,moreData).then(function (result1) {
+            api(url1,countryUrl1,moreData,withCommas).then(function (result1) {
                 data1 = result1;
                 if (result1.name === "United Kingdom of Great Britain and Northern Ireland") {
                     data1.name = "United Kingdom";
@@ -112,37 +114,94 @@ app.route("/compare")
             });
 
             setTimeout(() => {
+                let larger = "";
+                let smaller = "";
+                let percentLarger = 0;
+                let deadlier = "";
+                let percentDeadlier = 0;
+                let timesBigger = 0;
+
+                if ((data1.population > data2.population) || (data1.countryPopulation > data2.countryPopulation)) {
+                    larger = data1.name;
+                    smaller = data2.name;
+                    let diff = (data1.population - data2.population); 
+                    percentLarger = ((diff / data2.population) * 100).toFixed(1);
+
+                    timesBigger = (data1.population / data2.population).toFixed(1);
+
+                    let relationalDeaths = Math.floor((data2.population * data1.totalDeaths) / data1.population);
+                    
+                    if (relationalDeaths > data2.totalDeaths) {
+                        deadlier = data1.name;
+                        let diff2 = relationalDeaths - data2.totalDeaths ;
+                        percentDeadlier = ((diff2 / data2.totalDeaths) * 100).toFixed(1);
+                    } else {
+                        deadlier = data2.name;
+                        let diff2 =  data1.totalDeaths - relationalDeaths;
+                        percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
+                    }
+                } else {
+                    larger = data2.name;
+                    smaller = data1.name;
+                    let diff = (data2.population - data1.population); 
+                    percentLarger = ((diff / data1.population) * 100).toFixed(1);
+
+                    timesBigger = (data2.population / data1.population).toFixed(1);
+
+                    let relationalDeaths = Math.floor((data1.population * data2.totalDeaths) / data2.population);
+                    
+                    if (relationalDeaths > data1.totalDeaths) {
+                        deadlier = data2.name;
+                        let diff2 = relationalDeaths - data1.totalDeaths ;
+                        percentDeadlier = ((diff2 / data1.totalDeaths) * 100).toFixed(1);
+                    } else {
+                        deadlier = data1.name;
+                        let diff2 =  data2.totalDeaths - relationalDeaths;
+                        percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
+                    }
+                }
+
                 res.render("compareResults", 
                 {   
                     country1: data1.name,
                     country2: data2.name,
                     flag1: data1.flag,
                     flag2: data2.flag,
-                    population1: data1.population,
-                    population2: data2.population,
-                    population1b: data1.countryPopulation,
-                    population2b: data2.countryPopulation,
-                    total1: data1.totalCases,
-                    total2: data2.totalCases,
-                    today1: data1.todayCases,
-                    today2: data2.todayCases,
-                    recovered1: data1.totalRecovered,
-                    recovered2: data2.totalRecovered,
-                    deaths1: data1.totalDeaths,
-                    deaths2: data2.totalDeaths,
-                    active1: data1.active,
-                    active2: data2.active,
-                    critical1: data1.critical,
-                    critical2: data2.critical,
+                    population1: addCommas(data1.population),
+                    population2: addCommas(data2.population),
+                    population1b: addCommas(data1.countryPopulation),
+                    population2b: addCommas(data2.countryPopulation),
+                    total1: addCommas(data1.totalCases),
+                    total2: addCommas(data2.totalCases),
+                    today1: addCommas(data1.todayCases),
+                    today2: addCommas(data2.todayCases),
+                    recovered1: addCommas(data1.totalRecovered),
+                    recovered2: addCommas(data2.totalRecovered),
+                    deaths1: addCommas(data1.totalDeaths),
+                    deaths2: addCommas(data2.totalDeaths),
+                    active1: addCommas(data1.active),
+                    active2: addCommas(data2.active),
+                    critical1: addCommas(data1.critical),
+                    critical2: addCommas(data2.critical),
+                    larger:larger,
+                    smaller:smaller,
+                    percentLarger:percentLarger,
+                    timesBigger:timesBigger,
+                    percentDeadlier:percentDeadlier,
+                    deadlier:deadlier,
                     header: "Covid-19 Tracker | Results"
                 });
-            }, 1000);
+            }, 1500);
             
         } else {
             error = true;
             res.redirect("/");
         }
     });
+
+function addCommas(intNum) {
+    return (intNum + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+}
 
 // Server hosting ----------------------------
 app.listen(process.env.PORT || 3000, function () {

@@ -17,7 +17,6 @@ const iso2 = {
     "Jamaica" :"JM",
     "Bouvet Island" :"BV",
     "Botswana" :"BW",
-    "Samoa" :"WS",
     "Brazil" :"BR",
     "Bahamas":"BS",
     "Jersey" :"JE",
