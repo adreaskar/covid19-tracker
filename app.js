@@ -120,6 +120,7 @@ app.route("/compare")
                 let deadlier = "";
                 let percentDeadlier = 0;
                 let timesBigger = 0;
+                let timesDeadlier = 0;
 
                 if ((data1.population > data2.population) || (data1.countryPopulation > data2.countryPopulation)) {
                     larger = data1.name;
@@ -135,10 +136,14 @@ app.route("/compare")
                         deadlier = data1.name;
                         let diff2 = relationalDeaths - data2.totalDeaths ;
                         percentDeadlier = ((diff2 / data2.totalDeaths) * 100).toFixed(1);
+                        
+                        timesDeadlier = (relationalDeaths / data2.totalDeaths).toFixed(1);
                     } else {
                         deadlier = data2.name;
                         let diff2 =  data1.totalDeaths - relationalDeaths;
                         percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
+
+                        timesDeadlier = (data1.totalDeaths / relationalDeaths).toFixed(1);
                     }
                 } else {
                     larger = data2.name;
@@ -154,10 +159,14 @@ app.route("/compare")
                         deadlier = data2.name;
                         let diff2 = relationalDeaths - data1.totalDeaths ;
                         percentDeadlier = ((diff2 / data1.totalDeaths) * 100).toFixed(1);
+
+                        timesDeadlier = (relationalDeaths / data1.totalDeaths).toFixed(1);
                     } else {
                         deadlier = data1.name;
                         let diff2 =  data2.totalDeaths - relationalDeaths;
                         percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
+
+                        timesDeadlier = (data2.totalDeaths / relationalDeaths).toFixed(1);
                     }
                 }
 
@@ -189,6 +198,7 @@ app.route("/compare")
                     timesBigger:timesBigger,
                     percentDeadlier:percentDeadlier,
                     deadlier:deadlier,
+                    timesDeadlier:timesDeadlier,
                     header: "Covid-19 Tracker | Results"
                 });
             }, 1500);

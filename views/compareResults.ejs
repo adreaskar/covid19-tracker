@@ -56,7 +56,11 @@
                 <div class="content" id="extStats">
                     <h3 id="large">Εxtensive statistical data</h3>
 
-                    ⚰️ Covid-19 is <b><%= percentDeadlier %>%</b> deadlier in <%= deadlier %> regarding it's population.<br>
+                    <% if (percentDeadlier === "Infinity") { %>
+                        ⚰️ Covid-19 is deadlier in <%= deadlier %>.<br>
+                    <% } else { %>
+                        ⚰️ Covid-19 is <b><%= timesDeadlier %></b> times deadlier in <%= deadlier %> regarding it's population, or <b><%= percentDeadlier %>%</b> more.<br>
+                    <% } %>
 
                     📈 <%= larger %> is <b><%= percentLarger %>%</b> larger in population than <%= smaller %>, or <b><%= timesBigger %></b> times bigger.
                     
