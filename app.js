@@ -97,6 +97,8 @@ app.route("/compare")
                 data1 = result1;
                 if (result1.name === "United Kingdom of Great Britain and Northern Ireland") {
                     data1.name = "United Kingdom";
+                }else if (result1.name === "Lao People's Democratic Republic") {
+                    data1.name = "Laos";
                 }
             });
 
@@ -104,6 +106,8 @@ app.route("/compare")
                 data2 = result2;
                 if (result2.name === "United Kingdom of Great Britain and Northern Ireland") {
                     data2.name = "United Kingdom";
+                }else if (result2.name === "Lao People's Democratic Republic") {
+                    data2.name = "Laos";
                 }
             });
 
