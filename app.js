@@ -138,6 +138,9 @@ app.route("/compare")
                 });
             }, 1000);
             
+        } else {
+            error = true;
+            res.redirect("/");
         }
     });
 
