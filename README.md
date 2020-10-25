@@ -5,13 +5,22 @@ This is my first `Node.js` project as part of training. The app  is hosted on he
 
 Data sourced from Worldometers database.
 
-**Used**: 
+**What i used**: 
 - Bootstrap
 - Node.js
   - express
   - ejs
   - https
   - body parser
+
+**What i learned**:
+- Using ES6's arrow functions
+- Using promises to handle asynchronous operations
+- Exporting a custom module and importing it to main app file 
+- Using Embedded JavaScript templating (EJS)
+- Using and installing node modules
+- Enhanced vanilla js knowledge
+
 
 > https://covid19-world-api.herokuapp.com/
 
