@@ -216,6 +216,11 @@ display-flex {
     font-weight: 300;
   }
 
+  
+  .content2 {
+    margin-top: 40px;
+  }
+
   .content {
     margin: 40px auto 0 auto;
     display: flex;
@@ -340,6 +345,10 @@ display-flex {
       width: 85%;
     }
     .content {
+      margin-top: 70px;
+    }
+
+    .content2 {
       margin-top: 70px;
     }
     

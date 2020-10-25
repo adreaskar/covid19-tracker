@@ -1,6 +1,6 @@
 import https from "https"
 
-export async function api(url1,url2) {
+export async function api(url1,url2,flag) {
 
     let promise = new Promise((resolve,reject) => {
         var data = {};
@@ -35,15 +35,17 @@ export async function api(url1,url2) {
                         const countryData = JSON.parse(bod2);
         
                         // Filling country API data -------------------
-                        data.capital = countryData.capital;
-                        if (countryData.currencies[0].symbol != null) {
-                            data.currency = countryData.currencies[0].code + " " + countryData.currencies[0].symbol;
-                        } else {
-                            currency = countryData.currencies[0].code;
+                        if (flag) {
+                            data.capital = countryData.capital;
+                            if (countryData.currencies[0].symbol != null) {
+                                data.currency = countryData.currencies[0].code + " " + countryData.currencies[0].symbol;
+                            } else {
+                                currency = countryData.currencies[0].code;
+                            }
+                            data.region = countryData.region;
                         }
-                        data.flag = countryData.flag;
                         data.subRegion = countryData.subregion;
-                        data.region = countryData.region;
+                        data.flag = countryData.flag;
                         data.name = countryData.name;
                         data.countryPopulation = addCommas(countryData.population);
 
