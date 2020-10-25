@@ -18,7 +18,7 @@ let error2 = false;
 // Home route
 app.route("/")
     .get(function (req,res) {
-        res.render("index", {error:error});
+        res.render("index", {error:error, header: "Covid-19 Tracker"});
         error = false;
     })
     .post(function (req,res) {
@@ -105,7 +105,8 @@ app.route("/")
                             critical:critical,
                             capital:capital,
                             currency:currency,
-                            subregion:subRegion
+                            subregion:subRegion,
+                            header: "Covid-19 Tracker | Results"
                         });
                     }, 2000);
                 });
