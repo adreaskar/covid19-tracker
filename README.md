@@ -7,7 +7,7 @@ Data sourced from Worldometers database.
 
 > ### What i used: 
 - Bootstrap
-- Node.js
+- Node.js modules:
   - express
   - ejs
   - https
