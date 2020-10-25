@@ -28,7 +28,7 @@ app.route("/")
 
         const baseUrl = "https://disease.sh/v3/covid-19/countries/";
         const url = baseUrl + suffix + "?strict=true";
-        const countryUrl = "https://restcountries.eu/rest/v2/alpha/" + suffix ;
+        const countryUrl = "https://restcountries.eu/rest/v2/alpha/" + suffix;
 
         // Data validation -------------------
         const inArray = countries.includes(country);
@@ -107,7 +107,7 @@ app.route("/")
                             currency:currency,
                             subregion:subRegion
                         });
-                    }, 1000);
+                    }, 2000);
                 });
             });
         } else {
@@ -122,7 +122,26 @@ app.route("/compare")
         res.render("compare", {error:error2});
     })
     .post(function (req,res) {
-        res.send("Under construction!")
+        let country1 = req.body.countryName;
+        let country2 = req.body.countryName2;
+
+        country1 = country1.replace(/^\w/, c => c.toUpperCase());
+        country2 = country2.replace(/^\w/, c => c.toUpperCase());
+
+        let suffix1 = iso2[country1];
+        let suffix2 = iso2[country2];
+
+        const baseUrl = "https://disease.sh/v3/covid-19/countries/";
+        const url1 = baseUrl + suffix1 + "?strict=true";
+        const url2 = baseUrl + suffix2 + "?strict=true";
+        const countryUrl1 = "https://restcountries.eu/rest/v2/alpha/" + suffix1;
+        const countryUrl2 = "https://restcountries.eu/rest/v2/alpha/" + suffix2;
+
+        // Data validation -------------------
+        const inArray1 = countries.includes(country1);
+        const inArray2 = countries.includes(country2);
+
+        res.send("Under construction!");
     });
 
 // Add commas to seperate thousands -------------------------
