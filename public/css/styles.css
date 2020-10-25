@@ -273,12 +273,11 @@ display-flex {
     border-bottom: none;
     border-top: none;
     z-index: 99;
-    /*position the autocomplete items to be the same width as the container:*/
     top: 100%;
     left: 0;
     right: 0;
     overflow-y: scroll;
-    max-height: 317px;
+    max-height: 201px; /* Revert back to 317 pixels when compare module is added */
     font-family: Arial, Helvetica, sans-serif;
   }
   .autocomplete-items2 {
@@ -350,7 +349,7 @@ display-flex {
     } 
     .autocomplete-items {
         width: 85%;
-        max-height: 306px;
+        max-height: 191px; /* Revert back to 306 pixels when compare module is added */
     }
     .autocomplete-items2{
       width: 85%;
