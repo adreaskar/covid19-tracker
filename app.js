@@ -15,7 +15,7 @@ app.use(express.static("public"));
 let error = false;
 let error2 = false;
 
-// Home route
+// Home route ---------------------------------------------------------
 app.route("/")
     .get(function (req,res) {
         res.render("index", {error:error, header: "Covid-19 Tracker"});
