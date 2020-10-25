@@ -5,7 +5,7 @@ This is my first `Node.js` project as part of training. The app  is hosted on he
 
 Data sourced from Worldometers database.
 
-**What i used**: 
+> **What i used**: 
 - Bootstrap
 - Node.js
   - express
@@ -13,7 +13,7 @@ Data sourced from Worldometers database.
   - https
   - body parser
 
-**What i learned**:
+> **What i learned**:
 - Using ES6's arrow functions
 - Using promises to handle asynchronous operations
 - Exporting a custom module and importing it to main app file 
