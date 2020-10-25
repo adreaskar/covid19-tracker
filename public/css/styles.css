@@ -362,6 +362,9 @@ display-flex {
       margin-top: 70px;
     }
     
+    #extStats{
+      margin-top: 27px;
+    }
   }
 
   @media screen and (max-width: 575px) {
