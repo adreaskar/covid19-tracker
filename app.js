@@ -1,4 +1,6 @@
 
+import dotenv from 'dotenv'
+dotenv.config()
 import { iso2 } from './public/js/iso2.js'
 import { countries } from './public/js/countries.js'
 import { api } from './public/js/callAPI.js'
@@ -26,9 +28,8 @@ app.route("/")
         country = country.replace(/^\w/, c => c.toUpperCase());
         let suffix = iso2[country];
 
-        const baseUrl = "https://disease.sh/v3/covid-19/countries/";
-        const url = baseUrl + suffix + "?strict=true";
-        const countryUrl = "https://restcountries.eu/rest/v2/alpha/" + suffix;
+        const url = process.env.BASEURL + suffix + "?strict=true";
+        const countryUrl = process.env.COUNTRYURL + suffix;
 
         // Data validation -------------------------
         const inArray = countries.includes(country);

@@ -1,2 +1,3 @@
-test.html
+public/html/test.html
 node_modules/
+.env
