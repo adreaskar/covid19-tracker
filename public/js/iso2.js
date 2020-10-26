@@ -133,7 +133,6 @@ const iso2 = {
     "Nepal" :"NP",
     "Nauru" :"NR",
     "Niue" :"NU",
-    "Kosovo" :"XK",
     "Ivory Coast" :"CI",
     "Switzerland" :"CH",
     "Colombia" :"CO",

@@ -133,7 +133,6 @@ const countries = [
     "Nepal",
     "Nauru",
     "Niue",
-    "Kosovo",
     "Ivory Coast",
     "Switzerland",
     "Colombia",
