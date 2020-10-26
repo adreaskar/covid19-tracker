@@ -156,7 +156,6 @@ const iso2 = {
     "Kenya" :"KE",
     "South Sudan" :"SS",
     "Suriname" :"SR",
-    "Kiribati" :"KI",
     "Cambodia" :"KH",
     "Comoros" :"KM",
     "Slovakia" :"SK",

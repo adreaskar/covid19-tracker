@@ -156,7 +156,6 @@ const countries = [
     "Kenya",
     "South Sudan",
     "Suriname",
-    "Kiribati",
     "Cambodia",
     "Comoros",
     "Slovakia",
