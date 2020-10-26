@@ -7,6 +7,10 @@
         <script>alert("Please use recommended country names");</script>
     <% } %>
 
+    <% if (missingData) { %>
+        <script>alert("Sorry, no recorded data for one or both countries");</script>
+    <% } %>
+
     <div class="main">
 
         <h1 id="resultsHeaderIndex">Covid-19</h1>
