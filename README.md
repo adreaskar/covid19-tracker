@@ -19,6 +19,7 @@ Data sourced from Worldometers database.
 - Exporting a custom module and importing it to main app file 
 - Using Embedded JavaScript templating (EJS)
 - Using and installing node modules
+- Using environment variables
 - Enhanced vanilla js knowledge
 
 
