@@ -2,6 +2,8 @@
 import { iso2 } from './public/js/iso2.js'
 import { countries } from './public/js/countries.js'
 import { api } from './public/js/callAPI.js'
+import { yesterday } from './public/js/yestData.js'
+import { yesterdayStats } from './public/js/yestStats.js'
 import express from 'express'
 import bodyParser from "body-parser"
 
@@ -35,21 +37,31 @@ app.route("/")
 
         if (inArray) {
             const moreData = true;
-            const withCommas = true;
             
-            api(url,countryUrl,moreData,withCommas).then(function (result) {
+            api(url,countryUrl,moreData).then(function (result) {
+
+                var yesterdayData = {};
+                yesterday(url).then(function (result) {
+                    yesterdayData = result;
+                })
+
+                setTimeout(() => {
+                    yesterdayStats(result, yesterdayData);
+                }, 900);
+                
+
                 res.render("results", 
                 {   
                     country: result.name,
                     flag: result.flag,
-                    total: result.totalCases,
-                    today: result.todayCases,
-                    recovered: result.totalRecovered,
-                    deaths: result.totalDeaths,
-                    population: result.population,
-                    population2: result.countryPopulation,
+                    total: addCommas(result.totalCases),
+                    today: addCommas(result.todayCases),
+                    recovered: addCommas(result.totalRecovered),
+                    deaths: addCommas(result.totalDeaths),
+                    population: addCommas(result.population),
+                    population2: addCommas(result.countryPopulation),
                     region: result.region,
-                    active: result.active,
+                    active: addCommas(result.active),
                     critical: result.critical,
                     capital: result.capital,
                     currency: result.currency,
@@ -91,11 +103,11 @@ app.route("/compare")
 
         if (inArray1 && inArray2) {
             const moreData = false;
-            const withCommas = false;
+
             var data1 = {};
             var data2 = {};
 
-            api(url1,countryUrl1,moreData,withCommas).then(function (result1) {
+            api(url1,countryUrl1,moreData).then(function (result1) {
                 data1 = result1;
                 if (result1.name === "United Kingdom of Great Britain and Northern Ireland") {
                     data1.name = "United Kingdom";

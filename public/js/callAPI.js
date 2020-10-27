@@ -1,6 +1,6 @@
 import https from "https"
 
-export async function api(url1,url2,flag,flag2) {
+export async function api(url1,url2,flag) {
 
     let promise = new Promise((resolve,reject) => {
         var data = {};
@@ -14,23 +14,13 @@ export async function api(url1,url2,flag,flag2) {
             response.on("end", function (){
                 const covidData = JSON.parse(bod);
         
-                // Covid-19 API data --------------------------------
-                if (flag2) {
-                    data.totalCases = addCommas(covidData.cases);
-                    data.todayCases = addCommas(covidData.todayCases);
-                    data.totalRecovered = addCommas(covidData.recovered); 
-                    data.totalDeaths = addCommas(covidData.deaths);
-                    data.population = addCommas(covidData.population);
-                    data.active = addCommas(covidData.active);
-                } else {
-                    data.totalCases = covidData.cases;
-                    data.todayCases = covidData.todayCases;
-                    data.totalRecovered = covidData.recovered; 
-                    data.totalDeaths = covidData.deaths;
-                    data.population = covidData.population;
-                    data.active = covidData.active;
-                }
-                
+                // Covid-19 API data ---------------------
+                data.totalCases = covidData.cases;
+                data.todayCases = covidData.todayCases;
+                data.totalRecovered = covidData.recovered; 
+                data.totalDeaths = covidData.deaths;
+                data.population = covidData.population;
+                data.active = covidData.active;
                 data.critical = covidData.critical;
         
                 // API call to additional coutnry data -----
@@ -44,7 +34,7 @@ export async function api(url1,url2,flag,flag2) {
                     response2.on("end", function (){
                         const countryData = JSON.parse(bod2);
         
-                        // Filling country API data -------------------
+                        // Filling country API data -----------------------
                         if (flag) {
                             data.capital = countryData.capital;
                             if (countryData.currencies[0].symbol != null) {
@@ -57,11 +47,7 @@ export async function api(url1,url2,flag,flag2) {
                         data.subRegion = countryData.subregion;
                         data.flag = countryData.flag;
                         data.name = countryData.name;
-                        if (flag2) {
-                            data.countryPopulation = addCommas(countryData.population);
-                        } else {
-                            data.countryPopulation = countryData.population;
-                        }
+                        data.countryPopulation = countryData.population;
                         
                         resolve(data);
                     }); 
