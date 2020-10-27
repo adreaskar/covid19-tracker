@@ -17,11 +17,15 @@ app.use(express.static("public"));
 let error = false;
 let error2 = false;
 
+let missingData = false;
+let missingData2 = false;
+
 // Home route ---------------------------------------------------------
 app.route("/")
     .get(function (req,res) {
-        res.render("index", {error:error, header: "Covid-19 Tracker"});
+        res.render("index", {error:error, missingData:missingData, header: "Covid-19 Tracker"});
         error = false;
+        missingData = false;
     })
     .post(function (req,res) {
         let country = req.body.countryName;
@@ -39,6 +43,11 @@ app.route("/")
             const moreData = true;
             
             api(url,countryUrl,moreData).then(function (result) {
+
+                if(result.totalCases === "undefined") {
+                    missingData = true;
+                    res.redirect("/");
+                }
 
                 var yesterdayData = {};
                 yesterday(url).then(function (result) {
@@ -79,7 +88,9 @@ app.route("/")
 // Compare two countries route -----------------------------------------------------
 app.route("/compare")
     .get(function (req,res) {
-        res.render("compare", {error:error2, header: "Covid-19 Tracker | Compare"});
+        res.render("compare", {error:error2, missingData:missingData2, header: "Covid-19 Tracker | Compare"});
+        error2 = false;
+        missingData2 = false;
     })
     .post(function (req,res) {
         let country1 = req.body.countryName;
@@ -132,6 +143,11 @@ app.route("/compare")
                 let deadlier = "";
                 let percentDeadlier = 0;
                 let timesBigger = 0;
+
+                if (data1.totalCases === undefined || data2.totalCases === undefined) {
+                    missingData2 = true;
+                    res.redirect("/compare");
+                }
 
                 if ((data1.population > data2.population) || (data1.countryPopulation > data2.countryPopulation)) {
                     larger = data1.name;
@@ -206,8 +222,8 @@ app.route("/compare")
             }, 1500);
             
         } else {
-            error = true;
-            res.redirect("/");
+            error2 = true;
+            res.redirect("/compare");
         }
     });
 
