@@ -54,29 +54,33 @@ app.route("/")
                     yesterdayData = result;
                 })
 
-                setTimeout(() => {
-                    yesterdayStats(result, yesterdayData);
-                }, 900);
                 
+                setTimeout(() => {
+                    var yestStats = yesterdayStats(result, yesterdayData);
 
-                res.render("results", 
-                {   
-                    country: result.name,
-                    flag: result.flag,
-                    total: addCommas(result.totalCases),
-                    today: addCommas(result.todayCases),
-                    recovered: addCommas(result.totalRecovered),
-                    deaths: addCommas(result.totalDeaths),
-                    population: addCommas(result.population),
-                    population2: addCommas(result.countryPopulation),
-                    region: result.region,
-                    active: addCommas(result.active),
-                    critical: result.critical,
-                    capital: result.capital,
-                    currency: result.currency,
-                    subregion: result.subRegion,
-                    header: "Covid-19 Tracker | Results"
-                });
+                    res.render("results", 
+                    {   
+                        country: result.name,
+                        flag: result.flag,
+                        total: addCommas(result.totalCases),
+                        today: addCommas(result.todayCases),
+                        recovered: addCommas(result.totalRecovered),
+                        deaths: addCommas(result.totalDeaths),
+                        population: addCommas(result.population),
+                        population2: addCommas(result.countryPopulation),
+                        region: result.region,
+                        active: addCommas(result.active),
+                        critical: result.critical,
+                        capital: result.capital,
+                        currency: result.currency,
+                        subregion: result.subRegion,
+                        yestPercent:yestStats.percentCases,
+                        yestRaise:yestStats.raise,
+                        header: "Covid-19 Tracker | Results"
+                    });
+                    
+                }, 900);
+
             });
             
         } else {

@@ -278,6 +278,7 @@ display-flex {
   }
 
   #extStats {
+    width: 100%;
     display: inline-block;
     font-size: medium;
     font-weight: 400;
