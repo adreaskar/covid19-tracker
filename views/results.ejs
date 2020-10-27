@@ -41,6 +41,18 @@
 
                 </div>
 
+                <div class="content" id="extStats">
+                    <h3 id="large">Εxtensive statistical data</h3>
+
+                    <% if (yestRaise) { %>
+                        📈 Cases compared to yesterday:  <img src="images/raise.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                    <% } else { %>
+                        📉 Cases compared to yesterday: <img src="images/fall.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                    <% } %>
+                    
+
+                </div>
+
                 <div id="goBack">
                     <a href="/"><button>Go back</button></a>
                 </div>
@@ -53,6 +65,10 @@
                 </p>
             </div>
         </div>
+
+        <center><div class="cred credRes">
+            Developed and maintained by <br id="break"> Andreas Karabetian
+        </center></div> 
 
     </div>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

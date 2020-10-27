@@ -76,18 +76,19 @@ display-flex {
     margin: 0px; }
   
   .main {
-    padding: 150px 0;
-    position: relative; }
+    padding: 110px 0;
+    position: relative; 
+  }
   
   h1 {
     position: absolute;
     font-weight: 700;
-    font-size: 174px;
+    font-size: 164px;
     color: #fff;
     opacity: 0.5;
     right: 105px;
     top: 45px;
-    top: -149px;
+    top: -165px;
     z-index: 9; }
   
   .container {
@@ -277,6 +278,7 @@ display-flex {
   }
 
   #extStats {
+    width: 100%;
     display: inline-block;
     font-size: medium;
     font-weight: 400;
@@ -322,8 +324,25 @@ display-flex {
     background-color: DodgerBlue !important; 
     color: #ffffff;
   }
+
+  .cred, .credRes {
+    color: rgb(179, 179, 179);
+  }
+
+  .credRes {
+    margin-top: 30px;
+  }
+
+  #break {
+    display: none;
+  }
   
   @media screen and (max-width: 768px) {
+
+    .main {
+      padding: 140px 0;
+    }
+
     .container {
       width: calc( 100% - 30px);
       max-width: 100%; 
@@ -360,6 +379,22 @@ display-flex {
 
     .content2 {
       margin-top: 70px;
+    }
+
+    .cred {
+      margin-top: 230px;
+    }
+
+    .credRes {
+      margin-top: 250px;
+    }
+
+    .credComp {
+      margin-top: 260px;
+    }
+
+    #break {
+      display: block;
     }
     
     #extStats{

@@ -4,6 +4,8 @@ dotenv.config()
 import { iso2 } from './public/js/iso2.js'
 import { countries } from './public/js/countries.js'
 import { api } from './public/js/callAPI.js'
+import { yesterday } from './public/js/yestData.js'
+import { yesterdayStats } from './public/js/yestStats.js'
 import express from 'express'
 import bodyParser from "body-parser"
 
@@ -40,33 +42,46 @@ app.route("/")
 
         if (inArray) {
             const moreData = true;
-            const withCommas = true;
             
-            api(url,countryUrl,moreData,withCommas).then(function (result) {
+            api(url,countryUrl,moreData).then(function (result) {
 
-                if(result.totalCases === "undefined") {
+                if(result.totalCases === undefined) {
                     missingData = true;
                     res.redirect("/");
                 }
 
-                res.render("results", 
-                {   
-                    country: result.name,
-                    flag: result.flag,
-                    total: result.totalCases,
-                    today: result.todayCases,
-                    recovered: result.totalRecovered,
-                    deaths: result.totalDeaths,
-                    population: result.population,
-                    population2: result.countryPopulation,
-                    region: result.region,
-                    active: result.active,
-                    critical: result.critical,
-                    capital: result.capital,
-                    currency: result.currency,
-                    subregion: result.subRegion,
-                    header: "Covid-19 Tracker | Results"
-                });
+                var yesterdayData = {};
+                yesterday(url).then(function (result) {
+                    yesterdayData = result;
+                })
+
+                
+                setTimeout(() => {
+                    var yestStats = yesterdayStats(result, yesterdayData);
+
+                    res.render("results", 
+                    {   
+                        country: result.name,
+                        flag: result.flag,
+                        total: addCommas(result.totalCases),
+                        today: addCommas(result.todayCases),
+                        recovered: addCommas(result.totalRecovered),
+                        deaths: addCommas(result.totalDeaths),
+                        population: addCommas(result.population),
+                        population2: addCommas(result.countryPopulation),
+                        region: result.region,
+                        active: addCommas(result.active),
+                        critical: result.critical,
+                        capital: result.capital,
+                        currency: result.currency,
+                        subregion: result.subRegion,
+                        yestPercent:yestStats.percentCases,
+                        yestRaise:yestStats.raise,
+                        header: "Covid-19 Tracker | Results"
+                    });
+                    
+                }, 900);
+
             });
             
         } else {
@@ -104,11 +119,11 @@ app.route("/compare")
 
         if (inArray1 && inArray2) {
             const moreData = false;
-            const withCommas = false;
+
             var data1 = {};
             var data2 = {};
 
-            api(url1,countryUrl1,moreData,withCommas).then(function (result1) {
+            api(url1,countryUrl1,moreData).then(function (result1) {
                 data1 = result1;
                 if (result1.name === "United Kingdom of Great Britain and Northern Ireland") {
                     data1.name = "United Kingdom";
@@ -155,7 +170,6 @@ app.route("/compare")
                         deadlier = data1.name;
                         let diff2 = relationalDeaths - data2.totalDeaths ;
                         percentDeadlier = ((diff2 / data2.totalDeaths) * 100).toFixed(1);
-                        
                         timesDeadlier = (relationalDeaths / data2.totalDeaths).toFixed(1);
                     } else {
                         deadlier = data2.name;
