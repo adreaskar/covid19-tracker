@@ -16,11 +16,11 @@
                         <h3>Δεδομένα Covid-19</h3>
                         Κρούσματα: <span class="small"> <%= total %> </span> <br>
                         <% if ( today === "0") { %>
-                            Σημερινά κρούσματα: <span class="small"> Δέν έχουν ενημερωθεί </span>  <br>
+                            Σημερινά: <span class="small"> Δέν έχουν ενημερωθεί </span>  <br>
                         <% } else { %> 
-                            Σημερινά κρούσματα: <span class="small"> <%= today %> </span>  <br>
+                            Σημερινά: <span class="small"> <%= today %> </span>  <br>
                         <% } %>
-                        Ενεργά κρούσματα: <span class="small"> <%= active %> </span> <br>
+                        Ενεργοί: <span class="small"> <%= active %> </span> <br>
                         Critical: <span class="small"> <%= critical %> </span> <br>
                         <span id="health">Ανάρρωσαν:</span> <span class="small"> <%= recovered %> </span> <br>
                         <span id="death">Θάνατοι:</span> <span class="small"> <%= deaths %> </span>
