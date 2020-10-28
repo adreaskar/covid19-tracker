@@ -5,15 +5,10 @@ This is my first `Node.js` project as part of training. The app  is hosted on he
 
 Data sourced from Worldometers database.
 
-> ### What i used: 
-- Bootstrap
-- Node.js modules:
-  - express
-  - ejs
-  - https
-  - body parser
+## What i used: 
+│─ **Node.js modules:**<br>│   │<br>│   │─ **express**<br>│   │─ **ejs**<br>│   │─ **https**<br>│   └─ **body parser**<br>└─ **Bootstrap**
 
-> ### What i learned:
+## What i learned:
 - Using ES6's arrow functions
 - Using promises to handle asynchronous operations
 - Exporting a custom module and importing it to main app file 
@@ -23,6 +18,6 @@ Data sourced from Worldometers database.
 - Enhanced vanilla js knowledge
 
 
-> https://covid19-world-api.herokuapp.com/
+https://covid19-world-api.herokuapp.com/
 
 <img align="right" src="https://img.shields.io/github/repo-size/adreaskar/covid19-world-api?color=%23ff7429&style=for-the-badge">
