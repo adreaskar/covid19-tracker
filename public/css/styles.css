@@ -329,6 +329,10 @@ display-flex {
     color: rgb(179, 179, 179);
   }
 
+  .cred a, .credRes a {
+    color: rgb(179, 179, 179);
+  }
+
   .credRes {
     margin-top: 30px;
   }
