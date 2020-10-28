@@ -340,6 +340,10 @@ display-flex {
   #break {
     display: none;
   }
+
+  #credCompRes {
+    margin-top: 30px;
+  }
   
   @media screen and (max-width: 768px) {
 

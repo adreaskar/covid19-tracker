@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
     <%- include("header") -%>
 <body>
 
     <% if (error) { %>
-        <script>alert("Please use recommended country names");</script>
+        <script>alert("Παρακαλώ χρησιμοποιήστε τα προτεινόμενα ονόματα χωρών");</script>
     <% } %>
 
     <% if (missingData) { %>
-        <script>alert("Sorry, no recorded data for this country");</script>
+        <script>alert("Λυπάμαι, δεν υπάρχουν καταγεγραμμένα δεδομένα για αυτήν τη χώρα");</script>
     <% } %>
 
     <div class="main" id="mainInd">
@@ -16,28 +16,28 @@
         <h1 id="resultsHeaderIndex">Covid-19</h1>
         <div class="container">
             <div class="sign-up-content">
-                <form method="POST" class="signup-form" action="/" autocomplete="off">
+                <form method="POST" class="signup-form" action="/el" autocomplete="off">
                     <h2 class="form-title">Covid-19 Tracker</h2>
 
                     <p class="loginhere" id="subtitle">
-                        <a href="/el" class="loginhere-link">Στα ελληνικά</a>
+                        <a href="/" class="loginhere-link">English</a>
                     </p>
 
                     <center>
                         <div class="form-textbox">
-                            <input type="text" name="countryName" id="name" placeholder="Type country name" />
+                            <input type="text" name="countryName" id="name" placeholder="Όνομα χώρας" />
                         </div>
     
                         <br>
     
                         <div class="form-textbox">
-                            <input type="submit" name="submit" id="submitbtn" class="submit" value="Show results" />
+                            <input type="submit" name="submit" id="submitbtn" class="submit" value="Εμφάνιση" />
                         </div>
 
                         <h4>Or</h4>
 
                         <div class="form-textbox">
-                            <a href="/compare"><button id="btn" type="button">Compare two countries</button></a> 
+                            <a href="/compare/el"><button id="btn" type="button">Σύγκριση δύο χωρών</button></a> 
                         </div>
                     </center>
 
@@ -145,7 +145,7 @@
 
                 <p class="loginhere">
                     <center>
-                        <p>Data sourced from Worldometers</p>
+                        <p>Τα δεδομένα προέρχονται από τo Worldometers</p>
                         <a href="https://github.com/adreaskar/covid19-world-api" class="loginhere-link">Github</a>
                     </center>
                     
@@ -157,7 +157,7 @@
         <br>
 
         <center><div class="cred">
-            Developed and maintained by <br id="break"> <a href="mailto:adreas@karabetian.gr">Andreas Karabetian</a>
+            Ανάπτυξη και συντήρηση: <br id="break"> <a href="mailto:adreas@karabetian.gr">Ανδρέας Καραμπετιάν</a>
         </center></div> 
 
     </div>

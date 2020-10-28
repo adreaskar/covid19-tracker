@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="el">
+    <%- include("header") -%>
+<body>
+
+    <div class="main">
+
+        <h1 id="resultsHeader">Covid-19</h1>
+        <div class="container">
+            <div class="sign-up-content" id="resultsContent">
+                
+                <h2 class="form-title" id="countryHeading">Στοιχεία για <%= country %> <img src="<%= flag %>" style="width: 35px;"></h2>              
+
+                <div class="content">
+                    <div id="left">
+                        <h3>Δεδομένα Covid-19</h3>
+                        Κρούσματα: <span class="small"> <%= total %> </span> <br>
+                        <% if ( today === "0") { %>
+                            Σημερινά κρούσματα: <span class="small"> Δέν έχουν ενημερωθεί </span>  <br>
+                        <% } else { %> 
+                            Σημερινά κρούσματα: <span class="small"> <%= today %> </span>  <br>
+                        <% } %>
+                        Ενεργά κρούσματα: <span class="small"> <%= active %> </span> <br>
+                        Critical: <span class="small"> <%= critical %> </span> <br>
+                        <span id="health">Ανάρρωσαν:</span> <span class="small"> <%= recovered %> </span> <br>
+                        <span id="death">Θάνατοι:</span> <span class="small"> <%= deaths %> </span>
+                    </div>
+
+                    <div id="right">
+                        <h3>Δεδομένα Χώρας</h3>
+                        <% if ( population === "undefined") { %>
+                            Πληθυσμός: <span class="small"> <%= population2 %> </span> <br>
+                        <% } else { %> 
+                            Πληθυσμός: <span class="small"> <%= population %> </span> <br> 
+                        <% } %>
+                        Ήπειρος:  <span class="small"> <%= region %> </span> <br>
+                        Περιοχή:  <span class="small"> <%= subregion %> </span> <br>
+                        Πρωτεύουσα:  <span class="small"> <%= capital %> </span> <br>
+                        Κύριο νόμισμα:  <span class="small"> <%= currency %> </span>
+                    </div>
+
+                </div>
+
+                <div class="content" id="extStats">
+                    <h3 id="large">Αναλυτικά στατιστικά δεδομένα</h3>
+
+                    <% if (yestPercent != "NaN" && yestPercent != Infinity) { %>
+                        <% if (yestRaise) { %>
+                            📈 Κρούσματα σχετικά με χθές:  <img src="images/raise.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                        <% } else { %>
+                            📉 Κρούσματα σχετικά με χθές: <img src="images/fall.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                        <% } %>
+                    <% } else { %>
+                        📑 Κρούσματα σχετικά με χθές: Καμία αλλαγή
+                    <% } %>
+                    
+                </div>
+
+                <div id="goBack">
+                    <a href="/el"><button>Επιστροφή</button></a>
+                </div>
+               
+                <p class="loginhere">
+                    <center>
+                        <p>Τα δεδομένα προέρχονται από τo Worldometers</p>
+                        <a href="https://github.com/adreaskar/covid19-world-api" class="loginhere-link">Github</a>
+                    </center>
+                </p>
+            </div>
+        </div>
+
+        <center><div class="cred credRes">
+            Ανάπτυξη και συντήρηση: <br id="break"> <a href="mailto:adreas@karabetian.gr">Ανδρέας Καραμπετιάν</a>
+        </center></div> 
+
+    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
