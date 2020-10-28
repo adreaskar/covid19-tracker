@@ -343,6 +343,10 @@ display-flex {
       padding: 140px 0;
     }
 
+    #mainInd {
+      padding: 125px 0;
+    }
+
     .container {
       width: calc( 100% - 30px);
       max-width: 100%; 

@@ -44,7 +44,7 @@
                 <div class="content" id="extStats">
                     <h3 id="large">Εxtensive statistical data</h3>
 
-                    <% if (yestPercent != "NaN") { %>
+                    <% if (yestPercent != "NaN" && yestPercent != Infinity) { %>
                         <% if (yestRaise) { %>
                             📈 Cases compared to yesterday's data:  <img src="images/raise.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
                         <% } else { %>
