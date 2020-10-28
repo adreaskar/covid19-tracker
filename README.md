@@ -6,7 +6,7 @@ This is my first `Node.js` project as part of training. The app  is hosted on he
 Data sourced from Worldometers database.
 
 > ### What i used: 
-│─ **Node.js modules:**<br>│   │─ **express**<br>│   │─ **ejs**<br>│   │─ **https**<br>│   └─ body **parser**<br>└─ **Bootstrap**
+│─ **Node.js modules:**<br>│   │─ **express**<br>│   │─ **ejs**<br>│   │─ **https**<br>│   └─ **body parser**<br>└─ **Bootstrap**
 
 > ### What i learned:
 - Using ES6's arrow functions
