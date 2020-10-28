@@ -368,11 +368,10 @@ display-flex {
       margin-top: -100px;
     }
     #resultsHeader {
-      margin-top: 115px;
+      display: none;
     }
     #resultsHeaderIndex {
-      margin-top: 155px;
-      margin-left: 10px;
+      display: none;
     }
     #btn {
       width: 85%;
