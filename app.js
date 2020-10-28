@@ -73,7 +73,7 @@ app.route("/")
                         population2: addCommas(result.countryPopulation),
                         region: result.region,
                         active: addCommas(result.active),
-                        critical: result.critical,
+                        tests: addCommas(result.tests),
                         capital: result.capital,
                         currency: result.currency,
                         subregion: result.subRegion,
@@ -117,7 +117,7 @@ app.route("/el")
 
                 if(result.totalCases === undefined) {
                     missingDataGR = true;
-                    res.redirect("/");
+                    res.redirect("/el");
                 }
 
                 var yesterdayData = {};
@@ -141,7 +141,7 @@ app.route("/el")
                         population2: addCommas(result.countryPopulation),
                         region: result.region,
                         active: addCommas(result.active),
-                        critical: result.critical,
+                        tests: addCommas(result.tests),
                         capital: result.capital,
                         currency: result.currency,
                         subregion: result.subRegion,
@@ -293,8 +293,8 @@ app.route("/compare")
                     deaths2: addCommas(data2.totalDeaths),
                     active1: addCommas(data1.active),
                     active2: addCommas(data2.active),
-                    critical1: addCommas(data1.critical),
-                    critical2: addCommas(data2.critical),
+                    tests1: addCommas(data1.tests),
+                    tests2: addCommas(data2.tests),
                     larger:larger,
                     smaller:smaller,
                     percentLarger:percentLarger,
@@ -445,8 +445,8 @@ app.route("/compare/el")
                     deaths2: addCommas(data2.totalDeaths),
                     active1: addCommas(data1.active),
                     active2: addCommas(data2.active),
-                    critical1: addCommas(data1.critical),
-                    critical2: addCommas(data2.critical),
+                    tests1: addCommas(data1.tests),
+                    tests2: addCommas(data2.tests),
                     larger:larger,
                     smaller:smaller,
                     percentLarger:percentLarger,

@@ -21,7 +21,7 @@ export async function api(url1,url2,flag) {
                 data.totalDeaths = covidData.deaths;
                 data.population = covidData.population;
                 data.active = covidData.active;
-                data.critical = covidData.critical;
+                data.tests = covidData.tests;
         
                 // API call to additional coutnry data -----
                 https.get(url2, function (response2) {
