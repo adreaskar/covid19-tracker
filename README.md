@@ -18,6 +18,6 @@ Data sourced from Worldometers database.
 - Enhanced vanilla js knowledge
 
 
-`https://covid19-world-api.herokuapp.com/`
+https://covid19-world-api.herokuapp.com/
 
 <img align="right" src="https://img.shields.io/github/repo-size/adreaskar/covid19-world-api?color=%23ff7429&style=for-the-badge">
