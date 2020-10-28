@@ -40,7 +40,7 @@ export async function api(url1,url2,flag) {
                             if (countryData.currencies[0].symbol != null) {
                                 data.currency = countryData.currencies[0].code + " " + countryData.currencies[0].symbol;
                             } else {
-                                currency = countryData.currencies[0].code;
+                                data.currency = countryData.currencies[0].code;
                             }
                             data.region = countryData.region;
                         }
