@@ -6,11 +6,11 @@ This is my first `Node.js` project as part of training. The app  is hosted on he
 Data sourced from Worldometers database.
 
 > ### What i used: 
-│─ Node.js modules:<br>│   │─express
+│─ Node.js modules:<br>│   │─express<br>└─ Bootstrap
   - ejs
   - https
   - body parser
-└─ Bootstrap
+
 
 > ### What i learned:
 - Using ES6's arrow functions
