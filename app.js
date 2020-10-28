@@ -95,9 +95,9 @@ app.route("/")
 // Home route GR --------------------------------------------------------------------------------- 
 app.route("/el")
     .get(function (req,res) {
-        res.render("indexGR", {error:error, missingData:missingData, header: "Covid-19 Tracker"});
+        res.render("indexGR", {error:error, missingData:missingDataGR, header: "Covid-19 Tracker"});
         error = false;
-        missingData = false;
+        missingDataGR = false;
     })
     .post(function (req,res) {
         let country = req.body.countryName;
@@ -116,7 +116,7 @@ app.route("/el")
             api(url,countryUrl,moreData).then(function (result) {
 
                 if(result.totalCases === undefined) {
-                    missingData = true;
+                    missingDataGR = true;
                     res.redirect("/");
                 }
 
@@ -163,9 +163,9 @@ app.route("/el")
 // Compare two countries route -------------------------------------------------------------------------------
 app.route("/compare")
     .get(function (req,res) {
-        res.render("compare", {error:error2, missingData:missingData2GR, header: "Covid-19 Tracker | Compare"});
+        res.render("compare", {error:error2, missingData:missingData2, header: "Covid-19 Tracker | Compare"});
         error2 = false;
-        missingData2GR = false;
+        missingData2 = false;
     })
     .post(function (req,res) {
         let country1 = req.body.countryName;
@@ -221,7 +221,7 @@ app.route("/compare")
                 let timesDeadlier = 0;
 
                 if (data1.totalCases === undefined || data2.totalCases === undefined) {
-                    missingData2GR = true;
+                    missingData2 = true;
                     res.redirect("/compare");
                 }
 
@@ -311,10 +311,6 @@ app.route("/compare")
             res.redirect("/compare");
         }
     });
-
-function addCommas(intNum) {
-    return (intNum + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,');
-}
 
 // Compare two countries route GR -------------------------------------------------------------------------------
 app.route("/compare/el")
@@ -467,6 +463,10 @@ app.route("/compare/el")
             res.redirect("/compare/el");
         }
     });
+
+function addCommas(intNum) {
+    return (intNum + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+}
 
 // Server hosting ----------------------------
 app.listen(process.env.PORT || 3000, function () {
