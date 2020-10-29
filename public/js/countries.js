@@ -126,7 +126,6 @@ const countries = [
     "Namibia",
     "Vanuatu",
     "New Caledonia",
-    "Niger",
     "Norfolk Island",
     "Nigeria",
     "New Zealand",

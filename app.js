@@ -1,11 +1,18 @@
 
 import dotenv from 'dotenv'
 dotenv.config()
+
 import { iso2 } from './public/js/iso2.js'
+import { iso2GR } from './public/js/iso2GR.js'
+
 import { countries } from './public/js/countries.js'
+import { countriesGR } from './public/js/countriesGR.js'
+
 import { api } from './public/js/callAPI.js'
+
 import { yesterday } from './public/js/yestData.js'
 import { yesterdayStats } from './public/js/yestStats.js'
+
 import express from 'express'
 import bodyParser from "body-parser"
 
@@ -102,13 +109,13 @@ app.route("/el")
     .post(function (req,res) {
         let country = req.body.countryName;
         country = country.replace(/^\w/, c => c.toUpperCase());
-        let suffix = iso2[country];
+        let suffix = iso2GR[country];
 
         const url = process.env.BASEURL + suffix + "?strict=true";
         const countryUrl = process.env.COUNTRYURL + suffix;
 
         // Data validation -------------------------
-        const inArray = countries.includes(country);
+        const inArray = countriesGR.includes(country);
 
         if (inArray) {
             const moreData = true;
@@ -326,8 +333,8 @@ app.route("/compare/el")
         country1 = country1.replace(/^\w/, c => c.toUpperCase());
         country2 = country2.replace(/^\w/, c => c.toUpperCase());
 
-        let suffix1 = iso2[country1];
-        let suffix2 = iso2[country2];
+        let suffix1 = iso2GR[country1];
+        let suffix2 = iso2GR[country2];
 
         const baseUrl = "https://disease.sh/v3/covid-19/countries/";
         const url1 = baseUrl + suffix1 + "?strict=true";
@@ -336,8 +343,8 @@ app.route("/compare/el")
         const countryUrl2 = "https://restcountries.eu/rest/v2/alpha/" + suffix2;
 
         // Data validation ---------------------------
-        const inArray1 = countries.includes(country1);
-        const inArray2 = countries.includes(country2);
+        const inArray1 = countriesGR.includes(country1);
+        const inArray2 = countriesGR.includes(country2);
 
         if (inArray1 && inArray2) {
             const moreData = false;
