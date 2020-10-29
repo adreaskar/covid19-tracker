@@ -1,4 +1,5 @@
-
+import express from 'express'
+import bodyParser from "body-parser"
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -12,9 +13,6 @@ import { api } from './public/js/callAPI.js'
 
 import { yesterday } from './public/js/yestData.js'
 import { yesterdayStats } from './public/js/yestStats.js'
-
-import express from 'express'
-import bodyParser from "body-parser"
 
 const app = express();
 
@@ -70,7 +68,7 @@ app.route("/")
 
                     res.render("results", 
                     {   
-                        country: result.name,
+                        country: getKey(iso2, suffix),
                         flag: result.flag,
                         total: addCommas(result.totalCases),
                         today: addCommas(result.todayCases),
@@ -138,7 +136,7 @@ app.route("/el")
 
                     res.render("resultsGR", 
                     {   
-                        country: result.name,
+                        country: getKey(iso2GR, suffix),
                         flag: result.flag,
                         total: addCommas(result.totalCases),
                         today: addCommas(result.todayCases),
@@ -184,11 +182,10 @@ app.route("/compare")
         let suffix1 = iso2[country1];
         let suffix2 = iso2[country2];
 
-        const baseUrl = "https://disease.sh/v3/covid-19/countries/";
-        const url1 = baseUrl + suffix1 + "?strict=true";
-        const url2 = baseUrl + suffix2 + "?strict=true";
-        const countryUrl1 = "https://restcountries.eu/rest/v2/alpha/" + suffix1;
-        const countryUrl2 = "https://restcountries.eu/rest/v2/alpha/" + suffix2;
+        const url1 = process.env.BASEURL + suffix1 + "?strict=true";
+        const url2 = process.env.BASEURL + suffix2 + "?strict=true";
+        const countryUrl1 = process.env.COUNTRYURL + suffix1;
+        const countryUrl2 = process.env.COUNTRYURL + suffix2;
 
         // Data validation ---------------------------
         const inArray1 = countries.includes(country1);
@@ -202,20 +199,10 @@ app.route("/compare")
 
             api(url1,countryUrl1,moreData).then(function (result1) {
                 data1 = result1;
-                if (result1.name === "United Kingdom of Great Britain and Northern Ireland") {
-                    data1.name = "United Kingdom";
-                }else if (result1.name === "Lao People's Democratic Republic") {
-                    data1.name = "Laos";
-                }
             });
 
             api(url2,countryUrl2).then(function (result2) {
                 data2 = result2;
-                if (result2.name === "United Kingdom of Great Britain and Northern Ireland") {
-                    data2.name = "United Kingdom";
-                }else if (result2.name === "Lao People's Democratic Republic") {
-                    data2.name = "Laos";
-                }
             });
 
             setTimeout(() => {
@@ -234,8 +221,8 @@ app.route("/compare")
 
                 // Εxtensive statistical data calculation ---------------------------------------------------------
                 if ((data1.population > data2.population) || (data1.countryPopulation > data2.countryPopulation)) {
-                    larger = data1.name;
-                    smaller = data2.name;
+                    larger = getKey(iso2, suffix1);
+                    smaller = getKey(iso2, suffix2);
                     let diff = (data1.population - data2.population); 
                     percentLarger = ((diff / data2.population) * 100).toFixed(1);
 
@@ -244,20 +231,20 @@ app.route("/compare")
                     let relationalDeaths = Math.floor((data2.population * data1.totalDeaths) / data1.population);
                     
                     if (relationalDeaths > data2.totalDeaths) {
-                        deadlier = data1.name;
+                        deadlier = getKey(iso2, suffix1);
                         let diff2 = relationalDeaths - data2.totalDeaths ;
                         percentDeadlier = ((diff2 / data2.totalDeaths) * 100).toFixed(1);
                         timesDeadlier = (relationalDeaths / data2.totalDeaths).toFixed(1);
                     } else {
-                        deadlier = data2.name;
+                        deadlier = getKey(iso2, suffix2);
                         let diff2 =  data1.totalDeaths - relationalDeaths;
                         percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
 
                         timesDeadlier = (data1.totalDeaths / relationalDeaths).toFixed(1);
                     }
                 } else {
-                    larger = data2.name;
-                    smaller = data1.name;
+                    larger = getKey(iso2, suffix1);
+                    smaller = getKey(iso2, suffix2);
                     let diff = (data2.population - data1.population); 
                     percentLarger = ((diff / data1.population) * 100).toFixed(1);
 
@@ -266,13 +253,13 @@ app.route("/compare")
                     let relationalDeaths = Math.floor((data1.population * data2.totalDeaths) / data2.population);
                     
                     if (relationalDeaths > data1.totalDeaths) {
-                        deadlier = data2.name;
+                        deadlier = getKey(iso2, suffix2);
                         let diff2 = relationalDeaths - data1.totalDeaths ;
                         percentDeadlier = ((diff2 / data1.totalDeaths) * 100).toFixed(1);
 
                         timesDeadlier = (relationalDeaths / data1.totalDeaths).toFixed(1);
                     } else {
-                        deadlier = data1.name;
+                        deadlier = getKey(iso2, suffix1);
                         let diff2 =  data2.totalDeaths - relationalDeaths;
                         percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
 
@@ -282,8 +269,8 @@ app.route("/compare")
 
                 res.render("compareResults", 
                 {   
-                    country1: data1.name,
-                    country2: data2.name,
+                    country1: getKey(iso2, suffix1),
+                    country2: getKey(iso2, suffix2),
                     flag1: data1.flag,
                     flag2: data2.flag,
                     population1: addCommas(data1.population),
@@ -336,11 +323,10 @@ app.route("/compare/el")
         let suffix1 = iso2GR[country1];
         let suffix2 = iso2GR[country2];
 
-        const baseUrl = "https://disease.sh/v3/covid-19/countries/";
-        const url1 = baseUrl + suffix1 + "?strict=true";
-        const url2 = baseUrl + suffix2 + "?strict=true";
-        const countryUrl1 = "https://restcountries.eu/rest/v2/alpha/" + suffix1;
-        const countryUrl2 = "https://restcountries.eu/rest/v2/alpha/" + suffix2;
+        const url1 = process.env.BASEURL + suffix1 + "?strict=true";
+        const url2 = process.env.BASEURL + suffix2 + "?strict=true";
+        const countryUrl1 = process.env.COUNTRYURL + suffix1;
+        const countryUrl2 = process.env.COUNTRYURL + suffix2;
 
         // Data validation ---------------------------
         const inArray1 = countriesGR.includes(country1);
@@ -354,20 +340,10 @@ app.route("/compare/el")
 
             api(url1,countryUrl1,moreData).then(function (result1) {
                 data1 = result1;
-                if (result1.name === "United Kingdom of Great Britain and Northern Ireland") {
-                    data1.name = "United Kingdom";
-                }else if (result1.name === "Lao People's Democratic Republic") {
-                    data1.name = "Laos";
-                }
             });
 
             api(url2,countryUrl2).then(function (result2) {
                 data2 = result2;
-                if (result2.name === "United Kingdom of Great Britain and Northern Ireland") {
-                    data2.name = "United Kingdom";
-                }else if (result2.name === "Lao People's Democratic Republic") {
-                    data2.name = "Laos";
-                }
             });
 
             setTimeout(() => {
@@ -386,8 +362,8 @@ app.route("/compare/el")
 
                 // Εxtensive statistical data calculation ---------------------------------------------------------
                 if ((data1.population > data2.population) || (data1.countryPopulation > data2.countryPopulation)) {
-                    larger = data1.name;
-                    smaller = data2.name;
+                    larger = getKey(iso2GR, suffix1);
+                    smaller = getKey(iso2GR, suffix2);
                     let diff = (data1.population - data2.population); 
                     percentLarger = ((diff / data2.population) * 100).toFixed(1);
 
@@ -396,20 +372,20 @@ app.route("/compare/el")
                     let relationalDeaths = Math.floor((data2.population * data1.totalDeaths) / data1.population);
                     
                     if (relationalDeaths > data2.totalDeaths) {
-                        deadlier = data1.name;
+                        deadlier = getKey(iso2GR, suffix1);
                         let diff2 = relationalDeaths - data2.totalDeaths ;
                         percentDeadlier = ((diff2 / data2.totalDeaths) * 100).toFixed(1);
                         timesDeadlier = (relationalDeaths / data2.totalDeaths).toFixed(1);
                     } else {
-                        deadlier = data2.name;
+                        deadlier = getKey(iso2GR, suffix2);
                         let diff2 =  data1.totalDeaths - relationalDeaths;
                         percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
 
                         timesDeadlier = (data1.totalDeaths / relationalDeaths).toFixed(1);
                     }
                 } else {
-                    larger = data2.name;
-                    smaller = data1.name;
+                    larger = getKey(iso2GR, suffix2);
+                    smaller = getKey(iso2GR, suffix1);
                     let diff = (data2.population - data1.population); 
                     percentLarger = ((diff / data1.population) * 100).toFixed(1);
 
@@ -418,13 +394,13 @@ app.route("/compare/el")
                     let relationalDeaths = Math.floor((data1.population * data2.totalDeaths) / data2.population);
                     
                     if (relationalDeaths > data1.totalDeaths) {
-                        deadlier = data2.name;
+                        deadlier = getKey(iso2GR, suffix2);
                         let diff2 = relationalDeaths - data1.totalDeaths ;
                         percentDeadlier = ((diff2 / data1.totalDeaths) * 100).toFixed(1);
 
                         timesDeadlier = (relationalDeaths / data1.totalDeaths).toFixed(1);
                     } else {
-                        deadlier = data1.name;
+                        deadlier = getKey(iso2GR, suffix1);
                         let diff2 =  data2.totalDeaths - relationalDeaths;
                         percentDeadlier = ((diff2 / relationalDeaths) * 100).toFixed(1);
 
@@ -434,8 +410,8 @@ app.route("/compare/el")
 
                 res.render("compareResultsGR", 
                 {   
-                    country1: data1.name,
-                    country2: data2.name,
+                    country1: getKey(iso2GR, suffix1),
+                    country2: getKey(iso2GR, suffix2),
                     flag1: data1.flag,
                     flag2: data2.flag,
                     population1: addCommas(data1.population),
@@ -474,6 +450,10 @@ app.route("/compare/el")
 function addCommas(intNum) {
     return (intNum + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,');
 }
+
+function getKey(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
+  }
 
 // Server hosting ----------------------------
 app.listen(process.env.PORT || 3000, function () {
