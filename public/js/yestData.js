@@ -22,6 +22,7 @@ export async function yesterday(url1) {
                 data.totalDeaths = covidData.deaths;
                 data.active = covidData.active;
                 data.critical = covidData.critical;
+                data.tests = covidData.tests;
 
                 resolve(data);
             });

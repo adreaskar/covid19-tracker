@@ -84,6 +84,7 @@ app.route("/")
                         subregion: result.subRegion,
                         yestPercent:yestStats.percentCases,
                         yestRaise:yestStats.raise,
+                        testsToday: yestStats.testsToday,
                         header: "Covid-19 Tracker | Results"
                     });
                     
@@ -152,6 +153,8 @@ app.route("/el")
                         subregion: result.subRegion,
                         yestPercent:yestStats.percentCases,
                         yestRaise:yestStats.raise,
+                        testsToday:yestStats.testsToday,
+                        testsTodayGR: yestStats.testsTodayGR,
                         header: "Covid-19 Tracker | Results"
                     });
                     
