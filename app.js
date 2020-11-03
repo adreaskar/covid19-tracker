@@ -224,6 +224,7 @@ app.route("/compare")
 
                 // Εxtensive statistical data calculation ---------------------------------------------------------
                 if ((data1.population > data2.population) || (data1.countryPopulation > data2.countryPopulation)) {
+
                     larger = getKey(iso2, suffix1);
                     smaller = getKey(iso2, suffix2);
                     let diff = (data1.population - data2.population); 
@@ -246,8 +247,8 @@ app.route("/compare")
                         timesDeadlier = (data1.totalDeaths / relationalDeaths).toFixed(1);
                     }
                 } else {
-                    larger = getKey(iso2, suffix1);
-                    smaller = getKey(iso2, suffix2);
+                    larger = getKey(iso2, suffix2);
+                    smaller = getKey(iso2, suffix1);
                     let diff = (data2.population - data1.population); 
                     percentLarger = ((diff / data1.population) * 100).toFixed(1);
 
