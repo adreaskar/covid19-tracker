@@ -47,9 +47,11 @@
 
                     <% if (yestPercent != "NaN" && yestPercent != Infinity) { %>
                         <% if (yestRaise) { %>
-                            📈 Cases since yesterday:  <img src="images/raise.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                            📈 Cases since yesterday:  <img src="images/raise.png" style="width: 15px;"> <b><%= yestPercent %>%</b><br>
+                            ⚠️ Postitivity percentage: <b><%= positivePercent %>%</b> (regarding today's tests)
                         <% } else { %>
-                            📉 Cases since yesterday: <img src="images/fall.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                            📉 Cases since yesterday: <img src="images/fall.png" style="width: 15px;"> <b><%= yestPercent %>%</b><br>
+                            ⚠️ Postitivity percentage: <b><%= positivePercent %>%</b> (regarding today's tests and cases)
                         <% } %>
                     <% } else { %>
                         📑 Cases since yesterday: Not changed

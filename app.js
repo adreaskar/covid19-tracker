@@ -82,9 +82,10 @@ app.route("/")
                         capital: result.capital,
                         currency: result.currency,
                         subregion: result.subRegion,
-                        yestPercent:yestStats.percentCases,
-                        yestRaise:yestStats.raise,
-                        testsToday: yestStats.testsToday,
+                        yestPercent: yestStats.percentCases,
+                        yestRaise: yestStats.raise,
+                        testsToday: addCommas(yestStats.testsToday),
+                        positivePercent: yestStats.positivePercent,
                         header: "Covid-19 Tracker | Results"
                     });
                     
@@ -151,10 +152,11 @@ app.route("/el")
                         capital: result.capital,
                         currency: result.currency,
                         subregion: result.subRegion,
-                        yestPercent:yestStats.percentCases,
-                        yestRaise:yestStats.raise,
-                        testsToday:yestStats.testsToday,
+                        yestPercent: yestStats.percentCases,
+                        yestRaise: yestStats.raise,
+                        testsToday: addCommas(yestStats.testsToday),
                         testsTodayGR: yestStats.testsTodayGR,
+                        positivePercent: yestStats.positivePercent,
                         header: "Covid-19 Tracker | Results"
                     });
                     

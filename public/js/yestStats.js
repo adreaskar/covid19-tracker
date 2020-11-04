@@ -14,6 +14,7 @@ export function yesterdayStats(obj1,obj2) {
 
     let diff = obj1.tests - obj2.tests;
     if (diff > 0) {
+        data.positivePercent = ((obj1.todayCases / diff) * 100).toFixed(1);
         data.testsToday = diff;
         data.testsTodayGR = false;  
     } else {

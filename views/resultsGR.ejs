@@ -51,9 +51,11 @@
 
                     <% if (yestPercent != "NaN" && yestPercent != Infinity) { %>
                         <% if (yestRaise) { %>
-                            📈 Κρούσματα σχετικά με χθές:  <img src="images/raise.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                            📈 Κρούσματα σχετικά με χθές:  <img src="images/raise.png" style="width: 15px;"> <b><%= yestPercent %>%</b><br>
+                            ⚠️ Ποσοστό θετικότητας: <b><%= positivePercent %>%</b> (βάση των σημερινών κρουσμάτων και τέστ)
                         <% } else { %>
-                            📉 Κρούσματα σχετικά με χθές: <img src="images/fall.png" style="width: 15px;"> <b><%= yestPercent %>%</b>
+                            📉 Κρούσματα σχετικά με χθές: <img src="images/fall.png" style="width: 15px;"> <b><%= yestPercent %>%</b><br>
+                            ⚠️ Ποσοστό θετικότητας: <b><%= positivePercent %>%</b> (βάση των σημερινών κρουσμάτων και τέστ)
                         <% } %>
                     <% } else { %>
                         📑 Κρούσματα σχετικά με χθές: Καμία αλλαγή
