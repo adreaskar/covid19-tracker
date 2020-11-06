@@ -1,5 +1,9 @@
 <p align="center">
   <img src="https://github.com/adreaskar/images/blob/master/covid19.png" width=170>
+  
+  <a href="https://covid19-world-api.herokuapp.com/">View Demo</a>
+  ·
+  <a href="https://github.com/adreaskar/covid19-world-api/issues/new">Report Bug</a>
 </p>
 
 <h1 align="center"> Covid-19 Tracker </h1>
