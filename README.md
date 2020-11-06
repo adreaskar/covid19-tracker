@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/adreaskar/images/blob/master/covid19.png" width=200>
+  <img src="https://github.com/adreaskar/images/blob/master/covid19.png" width=180>
 </p>
 
 <h1 align="center"> Covid-19 Tracker </h1>
