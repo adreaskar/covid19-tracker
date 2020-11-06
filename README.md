@@ -8,6 +8,7 @@ Data sourced from Worldometers database.
 ## What i used: 
 │─ [Node.js](https://github.com/nodejs/node)<br>│   │─ [express](https://github.com/expressjs/express)<br>│   │─ [dotenv](https://github.com/motdotla/dotenv)<br>│   │─ [ejs](https://github.com/mde/ejs)<br>│   │─ https<br>│   └─ [body parser](https://github.com/expressjs/body-parser)<br>└─ [Bootstrap](https://github.com/twbs/bootstrap)
 
+```
 ## What i learned:
 - Using ES6's arrow functions
 - Using promises to handle asynchronous operations
@@ -16,6 +17,7 @@ Data sourced from Worldometers database.
 - Using and installing node modules
 - Using environment variables
 - Enhanced vanilla js knowledge
+```
 
 
 https://covid19-world-api.herokuapp.com/
