@@ -2,12 +2,7 @@
   <img src="https://github.com/adreaskar/images/blob/master/covid19.png" width=170>
 </p>
 
-<p align="center">
-  <h1 align="center"> Covid-19 Tracker </h1>
-  <a href="https://covid19-world-api.herokuapp.com/">View Demo</a>
-  ·
-  <a href="https://github.com/adreaskar/covid19-world-api/issues/new">Report Bug</a>
-</p>
+<h1 align="center"> Covid-19 Tracker </h1>
 
 A simple app that tracks Covid-19 data of current date + some additional country info. Using a clean graphical interface, it provides all the necessary statistics.
 
@@ -27,6 +22,10 @@ Data sourced from Worldometers database.
 - Using environment variables
 - Enhanced vanilla js knowledge
 
-https://covid19-world-api.herokuapp.com/
+<p align="center">
+  <a href="https://covid19-world-api.herokuapp.com/">View Demo</a>
+  ·
+  <a href="https://github.com/adreaskar/covid19-world-api/issues/new">Report Bug</a>
+</p>
 
 <img align="right" src="https://img.shields.io/github/repo-size/adreaskar/covid19-world-api?color=%23ff7429&style=for-the-badge">
