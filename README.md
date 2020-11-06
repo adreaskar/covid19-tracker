@@ -1,12 +1,14 @@
 <p align="center">
   <img src="https://github.com/adreaskar/images/blob/master/covid19.png" width=170>
-  
+</p>
+
+<h1 align="center"> Covid-19 Tracker </h1>
+<p align="center">
   <a href="https://covid19-world-api.herokuapp.com/">View Demo</a>
   ·
   <a href="https://github.com/adreaskar/covid19-world-api/issues/new">Report Bug</a>
 </p>
 
-<h1 align="center"> Covid-19 Tracker </h1>
 A simple app that tracks Covid-19 data of current date + some additional country info. Using a clean graphical interface, it provides all the necessary statistics.
 
 This is my first `Node.js` project as part of training. The app  is hosted on heroku using a free dyno, so if it loads slowly just wait until it wakes up from idle 💤.
