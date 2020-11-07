@@ -29,6 +29,10 @@ Data sourced from Worldometers database.
 </p>
 
 <p align="center">
+  <img src="https://github.com/adreaskar/images/blob/master/covidwide.jpg" width=1000>
+</p>
+
+<p align="center">
   <a href="https://covid19.karabetian.gr//">View Demo</a>
   ·
   <a href="https://github.com/adreaskar/covid19-world-api/issues/new">Report Bug</a>
