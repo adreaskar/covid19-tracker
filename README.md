@@ -36,7 +36,7 @@ Data sourced from Worldometers database.
 </p>
 
 <p align="center">
-  <a href="https://covid19.karabetian.gr//">View Demo</a>
+  <a href="https://covid19.karabetian.gr/">View Demo</a>
   ·
   <a href="https://github.com/adreaskar/covid19-world-api/issues/new">Report Bug</a>
 </p>
