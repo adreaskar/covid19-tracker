@@ -6,7 +6,7 @@
 
 A simple app that tracks Covid-19 data of current date + some additional country info. Using a clean graphical interface, it provides all the necessary statistics.
 
-This is my first `Node.js` project as part of training. The app  is hosted on heroku using a free dyno, so if it loads slowly just wait until it wakes up from idle 💤.
+This is my first `Node.js` project as part of training.
 
 Data sourced from Worldometers database.
 
@@ -23,7 +23,7 @@ Data sourced from Worldometers database.
 - Enhanced vanilla js knowledge
 
 <p align="center">
-  <a href="https://covid19-world-api.herokuapp.com/">View Demo</a>
+  <a href="https://covid19.karabetian.gr//">View Demo</a>
   ·
   <a href="https://github.com/adreaskar/covid19-world-api/issues/new">Report Bug</a>
 </p>
