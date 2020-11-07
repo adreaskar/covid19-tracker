@@ -28,9 +28,6 @@ Data sourced from Worldometers database.
   <img src="https://github.com/adreaskar/images/blob/master/covid.jpg" width=1000>
 </p>
 
-
-![  ](https://imgur.com/yhQ2kkb)
-
 <p align="center">
   <img src="https://github.com/adreaskar/images/blob/master/covidwide.jpg" width=1000>
 </p>
