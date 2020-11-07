@@ -22,7 +22,7 @@ Data sourced from Worldometers database.
 - Using environment variables
 - Enhanced vanilla js knowledge
 
-## :books: Pics:
+## :mag_right: Preview:
 
 <p align="center">
   <img src="https://github.com/adreaskar/images/blob/master/covid.jpg" width=1000>
