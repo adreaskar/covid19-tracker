@@ -24,9 +24,7 @@ Data sourced from Worldometers database.
 
 ## :mag_right: Preview:
 
-<p align="center">
-  <img src="https://github.com/adreaskar/images/blob/master/covid.jpg" width=1000>
-</p>
+![ ](https://imgur.com/BpoaWOE)
 
 <p align="center">
   <img src="https://github.com/adreaskar/images/blob/master/covidwide.jpg" width=1000>
