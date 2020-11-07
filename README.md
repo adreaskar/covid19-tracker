@@ -4,10 +4,6 @@
 
 <h1 align="center"> Covid-19 Tracker </h1>
 
-<p align="center">
-  <img src="https://github.com/adreaskar/images/blob/master/covid.jpg" width=1000>
-</p>
-
 A simple app that tracks Covid-19 data of current date + some additional country info. Using a clean graphical interface, it provides all the necessary statistics.
 
 This is my first `Node.js` project as part of training.
@@ -25,6 +21,12 @@ Data sourced from Worldometers database.
 - Using and installing node modules
 - Using environment variables
 - Enhanced vanilla js knowledge
+
+## :books: Pics:
+
+<p align="center">
+  <img src="https://github.com/adreaskar/images/blob/master/covid.jpg" width=1000>
+</p>
 
 <p align="center">
   <a href="https://covid19.karabetian.gr//">View Demo</a>
