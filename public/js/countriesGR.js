@@ -227,4 +227,4 @@ const countriesGR = [
     "Μοζαμβίκη"
 ]
 
-export {countriesGR};
+module.exports = countriesGR;

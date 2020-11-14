@@ -227,4 +227,4 @@ const countries = [
     "Mozambique"
 ]
 
-export {countries};
+module.exports = countries;

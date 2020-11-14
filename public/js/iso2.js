@@ -227,4 +227,4 @@ const iso2 = {
     "Mozambique":"MZ"
 }
 
-export {iso2};
+module.exports = iso2;

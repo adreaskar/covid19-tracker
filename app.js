@@ -1,18 +1,18 @@
-import express from 'express'
-import bodyParser from "body-parser"
-import dotenv from 'dotenv'
-dotenv.config()
+var express = require('express');
+var bodyParser = require ('body-parser');
+var dotenv = require ('dotenv');
+dotenv.config();
 
-import { iso2 } from './public/js/iso2.js'
-import { iso2GR } from './public/js/iso2GR.js'
+var iso2 = require('./public/js/iso2.js');
+var iso2GR = require('./public/js/iso2GR.js');
 
-import { countries } from './public/js/countries.js'
-import { countriesGR } from './public/js/countriesGR.js'
+var countries = require('./public/js/countries.js');
+var countriesGR = require('./public/js/countriesGR.js');
 
-import { api } from './public/js/callAPI.js'
+var api = require('./public/js/callAPI.js');
 
-import { yesterday } from './public/js/yestData.js'
-import { yesterdayStats } from './public/js/yestStats.js'
+var yesterday = require('./public/js/yestData.js');
+var yesterdayStats = require('./public/js/yestStats.js');
 
 const app = express();
 

@@ -1,6 +1,6 @@
-import https from "https"
+var https = require('https');
 
-export async function yesterday(url1) {
+module.exports = async function yesterday(url1) {
 
     let promise = new Promise((resolve,reject) => {
         var data = {};

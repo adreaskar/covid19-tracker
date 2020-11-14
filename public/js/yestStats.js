@@ -1,5 +1,5 @@
 
-export function yesterdayStats(obj1,obj2) {
+module.exports =  function yesterdayStats(obj1,obj2) {
 
     var data = {};
 

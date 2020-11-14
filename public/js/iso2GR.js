@@ -227,4 +227,4 @@ const iso2GR = {
     "Μοζαμβίκη":"MZ"
 }
 
-export {iso2GR};
+module.exports = iso2GR;
