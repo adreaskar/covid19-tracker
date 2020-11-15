@@ -16,7 +16,7 @@
         <h1 id="resultsHeaderIndex">Covid-19</h1>
         <div class="container">
             <div class="sign-up-content">
-                <form method="POST" class="signup-form" action="/" autocomplete="off">
+                <form method="POST" class="signup-form" action="/" autocomplete="off" id="query">
                     <h2 class="form-title">Covid-19 Tracker</h2>
 
                     <p class="loginhere" id="subtitle">
@@ -40,8 +40,11 @@
                             <a href="/compare"><button id="btn" type="button">Compare two countries</button></a> 
                         </div>
                     </center>
-
                 </form>
+
+                <script>
+                    mixpanel.track_forms('#query', 'Searched for a country');
+                </script>
 
                 <script>
                     function autocomplete(inp, arr) {
@@ -147,7 +150,7 @@
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
                     gtag('config', 'G-7B18RJBGJS');
-                    
+
                 </script>
 
                 <p class="loginhere">
