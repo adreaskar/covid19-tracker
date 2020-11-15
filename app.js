@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require ('body-parser');
-var mixpanel = require('mixpanel-browser');
 var dotenv = require ('dotenv');
 dotenv.config();
 
@@ -21,7 +20,6 @@ app.set('view engine','ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
-mixpanel.init("41359a0ffc35edba7d6b23a802a24570", { "api_host": "https://api-eu.mixpanel.com" }, "");
 
 let error = false;
 let error2 = false;
