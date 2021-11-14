@@ -30,15 +30,17 @@ module.exports = async function api(url1,url2,flag) {
                     response2.on("data", function (chunk2) {
                         bod2 += chunk2;
                     });
-        
+
                     response2.on("end", function (){
-                        const countryData = JSON.parse(bod2);
+                        const countryDataa = JSON.parse(bod2);
+                        const countryData = countryDataa[0];
         
                         // Filling country API data -----------------------
                         if (flag) {
-                            data.capital = countryData.capital;
-                            if (countryData.currencies[0].symbol != null) {
-                                data.currency = countryData.currencies[0].code + " " + countryData.currencies[0].symbol;
+                            data.capital = countryData.capital[0];
+
+                            if (Object.values(countryData.currencies)[0].symbol != null) {
+                                data.currency = Object.values(countryData.currencies)[0].name + " " + Object.values(countryData.currencies)[0].symbol;
                             } else {
                                 data.currency = countryData.currencies[0].code;
                             }
