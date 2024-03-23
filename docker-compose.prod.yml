@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+    web:
+        container_name: covid-tracker
+        image: adreaskar/covid-tracker:1.0
+        ports:
+            - '3000:3000'

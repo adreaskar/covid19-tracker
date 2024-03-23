@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+    web:
+        container_name: covid-tracker-dev
+        image: covid-tracker-dev-image
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - 3000:3000
+        volumes:
+            - ./:/app
+            - /app/node_modules
+            - /app/.next
+        env_file:
+            - ./.env
