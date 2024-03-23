@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/adreaskar/covid19-tracker/blob/master/covid19.png" width=170>
+  <img src="https://github.com/adreaskar/covid19-tracker/blob/master/public/images/covid19.png" width=170>
 </p>
 
 <h1 align="center"> Covid-19 Tracker </h1>
@@ -49,11 +49,11 @@ Then visit `http://localhost:3000` in your browser.
 ## :mag_right: Preview:
 
 <p align="center">
-  <img src="https://github.com/adreaskar/covid19-tracker/blob/master/covid.jpg" width=1000>
+  <img src="https://github.com/adreaskar/covid19-tracker/blob/master/public/images/covid.jpg" width=1000>
 </p>
 
 <p align="center">
-  <img src="https://github.com/adreaskar/covid19-tracker/blob/master//covidwide.jpg" width=1000>
+  <img src="https://github.com/adreaskar/covid19-tracker/blob/master/public/images/covidwide.jpg" width=1000>
 </p>
 
 <p align="center">
