@@ -49,7 +49,7 @@ Then visit `http://localhost:3000` in your browser.
 ## :mag_right: Preview:
 
 <p align="center">
-  <img src="https://github.com/adreaskar/covid19-tracker/blob/master/public/images/covid.jpg" width=1000>
+  <img src="https://github.com/adreaskar/covid19-tracker/blob/master/public/images/covid.png" width=1000>
 </p>
 
 <p align="center">
