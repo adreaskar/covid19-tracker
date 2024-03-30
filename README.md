@@ -38,7 +38,7 @@ Some of the new concepts i used are:
 
 ## :rocket: How to use:
 
-You can use the app by visiting the [live version](#) or by running it locally using the following command:
+You can use the app by visiting the [live version](https://covidtracker.karabetian.dev/) or by running it locally using the following command:
 
 ```bash
 docker run -p 3000:3000 adreaskar/covid19-tracker
