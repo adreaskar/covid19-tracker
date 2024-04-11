@@ -23,6 +23,8 @@ FROM base AS runner
 WORKDIR /app
 
 ENV COUNTRYURL=https://restcountries.com/v3.1/alpha/
+ARG ANALYTICS
+ENV NEXT_PUBLIC_GOOGLE_ANALYTICS=$ANALYTICS
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
